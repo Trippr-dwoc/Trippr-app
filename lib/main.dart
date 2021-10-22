@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:trippr_app/screens/home.dart';
-import 'package:trippr_app/theme/theme.dart';
+import 'package:get/get.dart';
+import 'package:trippr_app/config/routes/app_routes.dart';
+import 'package:trippr_app/config/routes/route_names.dart';
+import 'package:trippr_app/config/theme/theme.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({ Key? key }) : super(key: key);
-
+class MyApp extends GetView {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: TripprTheme.lightTheme,
-      home: const HomePage(title: 'Trippr'),
+    return GetMaterialApp(
+      initialRoute: Routes.homePage,
+      getPages: getPages,
+      theme: lightTheme,
+      darkTheme: darkTheme,
       debugShowCheckedModeBanner: false,
     );
   }

@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get/state_manager.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({ Key? key, required this.title }) : super(key: key);
+import '../controller/home_controller.dart';
 
-  final String title;
-
+class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
-      body: const Center(
-        child: Text('Trippr home page'),
-      ),
+      appBar: AppBar(title: const Text('Trippr')),
+      body: Center(
+        child: Text(controller.message),
+      )
     );
   }
 }
